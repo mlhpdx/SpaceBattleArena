@@ -24,3 +24,12 @@ echo GENERATE DOCS
 javadoc -public -sourcepath src -classpath "*;bin" -d ..\doc\client\java_doc -windowtitle "IHS AP CS Space Battle" -doctitle "IHS AP CS Space Battle" ihs.apcs.spacebattle ihs.apcs.spacebattle.commands ihs.apcs.spacebattle.games
 
 cd..
+
+echo BUILDING DOTNET CLIENT PACKAGE
+cd cs_client_src
+
+rmdir /S /Q bin
+mkdir bin
+dotnet build -c Release -nowarn:0649
+dotnet pack -c Release
+cd..
