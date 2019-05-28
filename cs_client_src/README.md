@@ -42,7 +42,6 @@ namespace APCS
     class MyShip : BasicSpaceship {
 	    override public RegistrationData registerShip(int numImages, int worldWidth, int worldHeight)
         {
-            center = new Point(worldWidth/2, worldHeight/2);
             return new RegistrationData("My Cool Ship!", Color.White, 0);
         }
 
