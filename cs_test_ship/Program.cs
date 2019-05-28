@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using SpaceBattleArena;
 
-namespace cs_client_src
+namespace APCS
 {
     class MyShip : BasicSpaceship {
         static Random r = new Random();
