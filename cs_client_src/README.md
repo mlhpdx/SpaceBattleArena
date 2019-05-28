@@ -36,6 +36,7 @@ Now you're *almost* ready to start coding!  First, you'll need to add the follow
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using SpaceBattleArena;
 
 namespace APCS
 {
