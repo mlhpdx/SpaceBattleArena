@@ -1,0 +1,31 @@
+version: 0.2 
+ 
+# build a library (strict nuget package output, only) 
+ 
+phases: 
+  install: 
+    commands: 
+      # Upgrade AWS CLI to the latest version 
+      - pip install --upgrade awscli 
+ 
+  pre_build: 
+    commands: 
+      - env 
+      - version=1.0.3 
+      - suffix=$(echo $CODEBUILD_SOURCE_VERSION | cut -d'/' -f 4) 
+       
+  build: 
+    commands: 
+      - echo Restore started on `date` 
+      - dotnet restore
+      - echo Build started on `date` 
+      - dotnet build -c Release -f netcoreapp2.0 
+      - echo Package started on `date` 
+      - dotnet pack -c Release /p:Version=$version-build.$suffix -o ./nupkg 
+      - echo Nuget push started on `date` 
+      - dotnet nuget push ./nupkg/*.nupkg -apikey $NUGET_API_KEY
+      - ls -R 
+ 
+artifacts: 
+  files: 
+    - ./nupkg/*.nupkg 
