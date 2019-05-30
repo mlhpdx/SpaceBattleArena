@@ -26,7 +26,7 @@ phases:
       - echo Package started on `date` 
       - dotnet pack -c Release /p:Version=$version-build.$suffix -o ./nupkg 
       - echo Nuget push started on `date` 
-      - dotnet nuget push ./nupkg/*.nupkg -apikey $NUGET_API_KEY
+      - dotnet nuget push -ApiKey $NUGET_API_KEY ./nupkg/*.nupkg
       - ls -R 
  
 artifacts: 
