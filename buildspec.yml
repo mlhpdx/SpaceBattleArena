@@ -14,7 +14,7 @@ phases:
     commands: 
       - env 
       - version=1.0.3 
-      - suffix=$(echo $CODEBUILD_SOURCE_VERSION | cut -d'/' -f 4) 
+      - suffix=$(echo $CODEBUILD_SOURCE_VERSION | cut -c 32-) 
        
   build: 
     commands: 
