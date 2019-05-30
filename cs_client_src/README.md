@@ -34,7 +34,7 @@ dotnet add package SBA_Client.Net
 
 Now you're *almost* ready to start coding!  First, you'll need to add the following boilerplate code to the file `Program.cs` which was created by the above commands:
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Drawing;
