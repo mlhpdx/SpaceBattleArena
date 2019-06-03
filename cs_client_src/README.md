@@ -1,7 +1,7 @@
 Space Battle Arena - .Net Core
 ==============================
 
-![Build Badge](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoidVRpbVB3aXM3VVp0WEI0Q0xjTDNCdXJCYmZSK2Q3M3hLMnRhYmJmZm5ET21wYzZLVVlLMjhneWIzcjdkc1RyUHoyVnQwWkVzTVB5bzhnaVdQeUtMKzBRPSIsIml2UGFyYW1ldGVyU3BlYyI6IlIwQk5TMjFJaHEvSk9ybkoiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master) ![Nuget Version](https://img.shields.io/nuget/v/SBA_Client.Net.svg)
+![Build Badge](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoidVRpbVB3aXM3VVp0WEI0Q0xjTDNCdXJCYmZSK2Q3M3hLMnRhYmJmZm5ET21wYzZLVVlLMjhneWIzcjdkc1RyUHoyVnQwWkVzTVB5bzhnaVdQeUtMKzBRPSIsIml2UGFyYW1ldGVyU3BlYyI6IlIwQk5TMjFJaHEvSk9ybkoiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master) [![Nuget Version](https://img.shields.io/nuget/v/SBA_Client.Net.svg)](https://www.nuget.org/packages/SBA_Client.Net)
 
 Space Battle Arena is a ‘[Programming Game](http://en.wikipedia.org/wiki/Programming_game)‘ where you must write code to autonomously control a space ship to accomplish specified objectives.  
 
