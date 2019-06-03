@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using SpaceBattleArena;
 
 namespace APCS
 {
-    class MyShip : BasicSpaceship {
+    class MyMiddleShip : BasicSpaceship {
         static Random r = new Random();
         Point center;
         
@@ -53,12 +54,48 @@ namespace APCS
             return new ThrustCommand(flip ? 'B' : 'F', .1, brakes, false);
         }
     }
+
+    class BaubleShip : BasicSpaceship {
+        static Random r = new Random();
+        Point center;
+        
+	    override public RegistrationData registerShip(int numImages, int worldWidth, int worldHeight)
+        {
+            center = new Point(worldWidth/2, worldHeight/2);
+            return new RegistrationData("Lee", Color.White, 0);
+        }
+
+        long iteration = 0L;
+        Stopwatch sw = new Stopwatch();
+	    override public ShipCommand getNextCommand(BasicEnvironment env)
+        {
+            iteration++;
+
+            if (env.getShipStatus().getSpeed() < 30) { 
+                return new ThrustCommand('B', 1, 1.0, false);
+            }
+            else if (!sw.IsRunning || sw.Elapsed.TotalSeconds > 10) {
+                sw.Restart();
+                return new RaiseShieldsCommand(10);                
+            }
+
+            double adjust = env.getShipStatus().getOrientation() 
+                - env.getShipStatus().getMovementDirection();
+            while (adjust < -180) adjust += 360;
+            while (adjust > 180) adjust -= 360;
+            if (Math.Abs(adjust) > 5) {
+                return new RotateCommand(-(int)adjust);
+            }
+
+            return new IdleCommand(.1);
+        }
+    }
     class Program
     {
         static void Main(string[] args)
         {
-            var ship = new MyShip();
-            TextClient<BasicGameInfo>.run("127.0.0.1", ship, 2012);
+            var ship = new BaubleShip();
+            TextClient<BasicGameInfo>.run("172.18.20.175", ship, 2012);
         }
     }
 }
